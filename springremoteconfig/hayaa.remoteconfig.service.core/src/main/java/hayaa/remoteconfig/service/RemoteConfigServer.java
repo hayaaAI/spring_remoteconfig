@@ -9,11 +9,12 @@ import hayaa.rpc.common.config.RpcConfig;
  * @author hsieh
  */
 public class RemoteConfigServer  {
-    private IRemoteConfigService remoteConfigService=RpcServiceFactory.
-            createService(IRemoteConfigService.class.getName());
+    private IRemoteConfigService remoteConfigService;
     public RemoteConfigServer(RpcConfig rpcConfig) {
         RpcClient rpcClient=new RpcClient();
         rpcClient.run(rpcConfig);
+        remoteConfigService=RpcServiceFactory.
+                createService(IRemoteConfigService.class.getName());
     }
 
     public FunctionResult<AppConfig> sendConfig(String solutionID, int version) {

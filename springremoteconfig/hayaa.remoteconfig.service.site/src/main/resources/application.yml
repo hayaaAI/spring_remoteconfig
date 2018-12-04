@@ -14,18 +14,19 @@
 #      springframework:
 #        web: debug
 #        transaction: debug
-springrpcconfig:
- sessiontimeout: 3000
-#  cpuCore: 1
-#  serviceRegUrl:
-#  servicePubliceUrl:
-#  keepUrl:
-#  consumerName: default
-#  messageSize: 1048576
-#  consumerServices:
-#    - name: default
-#      group: default
-#      interfaceName: Hayaa.RemoteConfig.Service.IRemoteConfigService
-#      assemblyName:
-#      serverHost: 192.168.31.59
-#      serverPort: 10012
+rpc:
+  sessionTimeout: 3000
+  cpuCore: 1
+  serviceRegUrl:
+  servicePubliceUrl:
+  keepUrl:
+  consumerConfiguation:
+    name: default
+    messageSize: 1048576
+    services:
+      - name: default
+        group: default
+        interfaceName: Hayaa.RemoteConfig.Service.IRemoteConfigService
+        assemblyName:
+        serverHost: 192.168.31.59
+        serverPort: 10012

@@ -1,5 +1,6 @@
 package hayaa;
 
+import hayaa.remoteconfi.service.app.SpringAppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

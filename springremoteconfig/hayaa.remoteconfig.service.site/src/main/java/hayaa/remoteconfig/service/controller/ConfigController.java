@@ -23,16 +23,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
 @CrossOrigin(origins = "*", allowCredentials = "true")
 public class ConfigController {
-    private RemoteConfigServer remoteConfigServer=new RemoteConfigServer(SpringAppConfig.getInstance().getRpcConfig());
-
-
+   private RemoteConfigServer remoteConfigServer=null;
+   @Autowired
+   private SpringRpcConfig springRpcConfig;
     @RequestMapping(value = "get")
-    public TransactionResult<AppConfig> Get(String application, Integer profile, String label) throws Exception {
-        AssertHelper.AssertStringNullorEmpty(application);
-        AssertHelper.AssertRangInt(profile, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    public TransactionResult<AppConfig> get(String application, Integer profile, String label) throws Exception {
+        //AssertHelper.AssertStringNullorEmpty(application);
+        //AssertHelper.AssertRangInt(profile, Integer.MIN_VALUE, Integer.MAX_VALUE);
         TransactionResult<AppConfig> result = new TransactionResult<AppConfig>();
         String solutionID = application;
         Integer version = profile;
+        if(remoteConfigServer==null){
+            remoteConfigServer=new RemoteConfigServer(SpringAppConfig.parseRpcConfig(springRpcConfig));
+        }
         FunctionResult<AppConfig> serviceResult =remoteConfigServer.sendConfig(solutionID,version.intValue());
         if (serviceResult.isActionResult() && serviceResult.isHavingData()) {
             result.setData(serviceResult.getData());
