@@ -17,7 +17,7 @@ public class SpringAppConfig {
     private SpringRpcConfig springRpcConfig;
     public  RpcConfig getRpcConfig() {
         RpcConfig rpcConfig=new RpcConfig();
-        BeanUtils.copyProperties(springAppConfig,rpcConfig);
+        BeanUtils.copyProperties(springRpcConfig,rpcConfig);
         return rpcConfig;
     }
 }
