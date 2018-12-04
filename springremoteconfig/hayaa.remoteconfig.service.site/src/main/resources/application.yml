@@ -1,0 +1,33 @@
+RpcConfig:
+  sessionTimeout:3000
+  cpuCore:1
+  serviceRegUrl:
+  servicePubliceUrl:
+  keepUrl:
+  consumerConfiguation:
+    name:default
+    messageSize:1048576
+    services:
+      - name:default
+        group:default
+        interfaceName:Hayaa.RemoteConfig.Service.IRemoteConfigService
+        assemblyName:
+        serverHost:192.168.31.59
+        serverPort:10012
+server:
+  port:8080
+  servlet:
+    context-path:/
+  session-timeout:1000000
+  mvc:
+    throw-exception-if-no-handler-found:true
+  tomcat:
+    uri-encoding:UTF-8
+    compression:on
+logging:
+  level:
+    org:
+      springframework:
+        web:debug
+        transaction:debug
+
