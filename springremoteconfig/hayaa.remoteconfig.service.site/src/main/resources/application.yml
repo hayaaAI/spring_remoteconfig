@@ -1,19 +1,19 @@
-#server:
-#  port: 8080
-#  servlet:
-#    context-path: /
-#  session-timeout: 1000000
-#  mvc:
-#    throw-exception-if-no-handler-found: true
-#  tomcat:
-#    uri-encoding: UTF-8
-#    compression: on
-#logging:
-#  level:
-#    org:
-#      springframework:
-#        web: debug
-#        transaction: debug
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  session-timeout: 1000000
+  mvc:
+    throw-exception-if-no-handler-found: true
+  tomcat:
+    uri-encoding: UTF-8
+    compression: on
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
+        transaction: debug
 rpc:
   sessionTimeout: 3000
   cpuCore: 1
@@ -26,7 +26,7 @@ rpc:
     services:
       - name: default
         group: default
-        interfaceName: Hayaa.RemoteConfig.Service.IRemoteConfigService
+        interfaceName: hayaa.remoteconfig.service.IRemoteConfigService
         assemblyName:
-        serverHost: 192.168.31.59
+        serverHost: 192.168.31.217
         serverPort: 10012
